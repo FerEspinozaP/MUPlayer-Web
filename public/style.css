@@ -5,7 +5,7 @@
 
 body{
     height: 100vh;
-    font-family:'Quicksand';
+    font-family: 'Quicksand';
 }
 
 .container{
@@ -42,7 +42,22 @@ body{
     border-radius: 50%;
     position: absolute;
     top: -100px;
-    
+}
+
+.record-animation{
+    animation-name: spin;
+    animation-duration: 5000ms;
+    animation-iteration-count: infinite;
+    animation-timing-function: linear;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+    to{
+        transform: rotate(360deg);
+    }
 }
 
 .player h2{
