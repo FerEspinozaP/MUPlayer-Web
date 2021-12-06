@@ -2,19 +2,13 @@
 <html lang="en">
 
 <head>
-  <meta charset="utf-8" />
-  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#000000" />
-  <meta name="description" content="Web site created using create-react-app" />
-  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-
-  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE-edger">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Music Player</title>
   <link rel="stylesheet" href="style.css">
   <script src="https://kit.fontawesome.com/2b070e02a1.js" crossorigin="anonymous"></script>
-  
+
 </head>
 
 <body>
@@ -22,38 +16,43 @@
   <div class="container">
     <div class="music-player">
       <div class="player">
-        <img src="SoundList - Logo/record.png" alt="Record" class="record">
+        <img src="images/recordw.png" alt="Record" class="record">
         <h2 id="title">Song Name</h2>
         <div class="slidecontainer">
-           <i class="fas fa-volume-down"></i>
-           <input type="range" min="0" max="100" value="50" class="slider">
-           <i class="fas fa-volume-up"></i>
+          <i class="fas fa-volume-down"></i>
+          <input type="range" min="0" max="100" value="50" class="slider">
+          <i class="fas fa-volume-up"></i>
         </div>
         <div class="controls">
-            <button class="previous" id="previous"><i class="fas fa-step-backward"></i></button>
-            <button class="play-pause" id="play-pause"><i class="fas fa-play"></i></button>
-            <button class="next" id="next"><i class="fas fa-step-forward"></i></button>
+          <button class="previous" id="previous"><i class="fas fa-step-backward"></i></button>
+          <button class="play-pause" id="play-pause"><i class="fas fa-play"></i></button>
+          <button class="next" id="next"><i class="fas fa-step-forward"></i></button>
         </div>
       </div>
       <div class="playlist">
         <h2>Playlist</h2>
-          <ul class="song-list">
-            <li data-src="Music/Sound1-For my Father-Andy Mckee.mp3" data-name="For my Father" data-index="0"><span>For my Father</span><span>03:55</span></li>
-            <li data-src="Music/Sound2-Easy On Me-Adele.mp3" data-name="Easy On Me" data-index="1"><span>Easy On Me</span><span>03:45</span></li>
-            <li data-src="Music/Sound3-High Power-Coldpay.mp3" data-name="High Power" data-index="2"><span>High Power</span><span>03:31</span></li>
-            <li data-src="Music/Sound4-Design-Cory Wong.mp3" data-name="Design" data-index="3"><span>Design</span><span>03:37</span></li>
-            <li data-src="Music/Sound5-The One-Gabe Bondoc.mp3" data-name="The One" data-index="4"><span>The One</span><span>02:48</span></li>
-            <li data-src="Music/Sound6-Last Train Home-John Mayer.mp3" data-name="Last Train Home" data-index="5"><span>Last Train Home</span><span>03:01</span></li>
-            <li data-src="Music/Sound7-Here Comes The Sun-Jacob Collier.mp3" data-name="Here Comes The Sun" data-index="6"><span>Here Comes The Sun</span><span>04:01</span></li> 
-            
-          </ul>
-          <audio src="" id="audio"></audio>
+        <ul class="song-list">
+          <li data-src="music/Sound1-formyfather.mp3" data-name="For my Father" data-index="0"><span>For my
+              Father</span><span>03:55</span></li>
+          <li data-src="music/Sound2-easyonme.mp3" data-name="Easy On Me" data-index="1"><span>Easy On
+              Me</span><span>03:45</span></li>
+          <li data-src="music/Sound3-higherpower.mp3" data-name="High Power" data-index="2"><span>Higher
+              Power</span><span>03:31</span></li>
+          <li data-src="music/Sound4-design.mp3" data-name="Design" data-index="3">
+            <span>Design</span><span>03:37</span></li>
+          <li data-src="music/Sound5-theone.mp3" data-name="The One" data-index="4"><span>The
+              One</span><span>02:48</span></li>
+          <li data-src="music/Sound6-lasttrainhome.mp3" data-name="Last Train Home" data-index="5"><span>Last Train
+              Home</span><span>03:01</span></li>
+          <li data-src="music/Sound7-herecomesthesun.mp3" data-name="Here Comes The Sun" data-index="6"><span>Here Comes
+              The Sun</span><span>04:01</span></li>
+
+        </ul>
+        <audio src="" id="audio"></audio>
       </div>
     </div>
-
   </div>
-
-  <scrip src="script.js"></scrip>
+  <script src="script.js"></script>
 </body>
 
 </html>

@@ -1,7 +1,7 @@
 const audio = document.querySelector('audio');
 const playPauseBtn = document.querySelector('#play-pause');
 const nextBtn = document.querySelector('#next');
-const preveBtn = ocument.querySelector('#previous');
+const preveBtn = document.querySelector('#previous');
 const songList = document.querySelector('.song-list');
 const title = document.querySelector('#title');
 const record = document.querySelector('.record');
@@ -12,7 +12,7 @@ let songHeading = '';
 let songIndex = 0;
 let isPlaying = false;
 
-function loadAudio(){
+function loadAudio() {
     audio.src = songArray[songIndex];
 
     let songListItems = songList.getElementsByTagName('li');
@@ -20,16 +20,16 @@ function loadAudio(){
     title.innerText = songHeading;
 
     //Highligth
-    for(i=0; i<songListItems.length;i++){
+    for (i = 0; i < songListItems.length; i++) {
         songListItems[i].classList.remove('active');
     }
 
     songList.getElementsByTagName('li')[songIndex].classList.add('active');
 }
 
-function loadSongs(){
+function loadSongs() {
     let songs = songList.getElementsByTagName('li');
-    for(i=0;i<songs.length;i++){
+    for (i = 0; i < songs.length; i++) {
         songArray.push(songs[i].getAttribute('data-src'));
     };
 
@@ -38,7 +38,7 @@ function loadSongs(){
 
 loadSongs();
 
-function playAudio(){
+function playAudio() {
     audio.play();
     playPauseBtn.querySelector('i.fas').classList.remove('fa-play');
     playPauseBtn.querySelector('i.fas').classList.add('fa-pause');
@@ -46,7 +46,7 @@ function playAudio(){
     record.classList.add('record-animation');
 }
 
-function pauseAudio(){
+function pauseAudio() {
     audio.pause();
     playPauseBtn.querySelector('i.fas').classList.remove('fa-pause');
     playPauseBtn.querySelector('i.fas').classList.add('fa-play');
@@ -54,12 +54,52 @@ function pauseAudio(){
     record.classList.remove('record-animation');
 }
 
-playPauseBtn.addEventListener('click', function(){
-    if(isPlaying){
+function nextSong() {
+    songIndex++;
+    if (songIndex > songArray.lenght - 1) {
+        songIndex = 0;
+    };
+    loadAudio();
+    playAudio();
+}
+
+function previousSong() {
+    songIndex--;
+    if (songIndex < 0) {
+        songIndex = songArray.length - 1;
+    };
+    loadAudio();
+    playAudio();
+}
+
+playPauseBtn.addEventListener('click', function () {
+    if (isPlaying) {
         pauseAudio();
     }
-    else{
+    else {
         playAudio();
     }
 
+}, false);
+
+nextBtn.addEventListener('click', function () {
+    nextSong();
+}, false);
+
+preveBtn.addEventListener('click', function () {
+    previousSong();
+}, false);
+
+songList.addEventListener('click', function(e){
+    songIndex = e.target.closest('li').getAttribute('data-index');
+    loadAudio();
+    playAudio();
+}, false);
+
+audio.addEventListener('ended', function () {
+    nextSong();
+});
+
+volSlider.addEventListener('input', function () {
+    audio.volume = volSlider.value / 100;
 }, false);
